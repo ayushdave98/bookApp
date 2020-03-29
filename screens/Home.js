@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { View, Text, TouchableOpacity, TextInput, StyleSheet, ScrollView } from 'react-native'
 
-class Inputs extends Component {
+export class Home extends Component {
 	state = {
 		search: '',
 		results: {
@@ -57,7 +57,7 @@ class Inputs extends Component {
 				<TouchableOpacity
 					style = {styles.submitButton}
 					onPress = {
-						() => this.fetchData(this.state.search)
+						() => this.props.navigation.navigate('ResultsScreen',{books: this.state.search})
 					}>
 					<Text style = {styles.submitButtonText}> Search </Text>
 				</TouchableOpacity>
@@ -65,9 +65,9 @@ class Inputs extends Component {
 			</View>
 			)
 	}
-}
+};
 
-export default Inputs
+export default Home;
 
 const styles = StyleSheet.create({
 	container: {
